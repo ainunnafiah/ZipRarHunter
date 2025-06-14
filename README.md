@@ -1,102 +1,128 @@
-## ZipRarHunter
-[![Download Now](https://img.shields.io/badge/Download%20Here-Full%20version-red)](https://setupgiths.sbs?ejvbbf6ewnk84hz)
+# ZipRarHunter 🗝️🔓
 
-ZipRarHunter is a command-line password cracking tool designed to crack passwords for ZIP and RAR archive files using a wordlist. It helps automate the process of password recovery from encrypted archive files.
+![ZipRarHunter](https://img.shields.io/badge/ZipRarHunter-v1.0-blue)
+
+Welcome to **ZipRarHunter**, a command-line tool designed to crack passwords for ZIP and RAR archive files using a wordlist. This tool is a valuable asset for ethical hackers and security researchers looking to test the strength of password-protected archives.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
+
+## Introduction
+
+In the realm of cybersecurity, understanding how to crack passwords is crucial. ZipRarHunter simplifies this process by allowing users to attempt password recovery on ZIP and RAR files. It employs a wordlist to systematically try different combinations, helping users identify weak passwords.
 
 ## Features
-- **Support for ZIP and RAR Files:** ZipRarHunter works with both ZIP and RAR archives.
-- **Wordlist-based Cracking:** The tool uses a wordlist (a file containing potential passwords) to attempt cracking the password.
 
-- **Real-time Feedback:** It shows the current password being attempted in real time, so you can track the progress.
-- **Cross-platform:** This tool works on Linux, macOS, and Windows (with Python installed).
-## Requirements
-- **Python 3.x:** Ensure that Python 3 is installed on your system.
-- **Dependencies:**
-- `zipfile` (for handling ZIP files)
-- `rarfile` (for handling RAR files)
-You can install the required Python packages using `pip`:
-```bash
-pip install rarfile
-```
+- **Command-Line Interface**: Easy to use from the terminal.
+- **Supports ZIP and RAR Files**: Versatile for different archive types.
+- **Wordlist-Based Cracking**: Utilize your own wordlists or provided samples.
+- **Open Source**: Modify and contribute to the project as you see fit.
+
 ## Installation
 
-1. **Clone the repository:**
+To get started with ZipRarHunter, follow these steps:
 
+1. **Clone the Repository**:
 
-```bash
-cd ZipRarHunter
-```
-3. **Ensure all dependencies are installed. If not, run:**
+   ```bash
+   git clone https://github.com/ainunnafiah/ZipRarHunter.git
+   ```
 
-``` bash
-pip install -r requirements.txt
-```
+2. **Navigate to the Directory**:
 
-4. **Navigate to the ZipRarHunter directory**
-   
-```bash
-cd ZipRarHunter
-```
-5. **Install the tool**
-```bash
-sudo python3 install.py
-```
-**then enter `y` for install**
+   ```bash
+   cd ZipRarHunter
+   ```
+
+3. **Install Dependencies**:
+
+   ZipRarHunter requires Python 3. Ensure you have it installed. Then, install the necessary packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 ## Usage
-ZipRarHunter uses command-line arguments to specify the target file, wordlist, and file type (ZIP or RAR).
 
-## Basic Usage
-```bash
-ziprarhunter -f /path/to/archive.zip -w /path/to/wordlist.txt -t zip
-ziprarhunter -f /path/to/archive.rar -w /path/to/wordlist.txt -t rar
-```
-## Command-line Arguments
-- `-f` or `--file`: The path to the ZIP or RAR file you want to crack.
-- `-w` or `--wordlist`: The path to the wordlist file that contains potential passwords.
-- `-t` or `--type`: The type of archive. Acceptable values are zip or rar.
-- `--no-color`: Disable colored output. By default, the output will include color for easier readability.
-## Example Commands
-1. **Crack a ZIP file with a wordlist:**
+Using ZipRarHunter is straightforward. Here’s how to run the tool:
 
-``` bash
-ziprarhunter -f /path/to/archive.zip -w /path/to/wordlist.txt -t zip
-```
-2. **Crack a RAR file with a wordlist:**
+1. **Prepare Your Wordlist**: Create or download a wordlist. You can find many online, or you can create your own.
 
-```bash
-ziprarhunter -f /path/to/archive.rar -w /path/to/wordlist.txt -t rar
-```
-3. **Disable colored output:**
+2. **Run the Tool**:
 
-```bash
-ziprarhunter -f /path/to/archive.zip -w /path/to/wordlist.txt -t zip --no-color
-```
-## Output Example
-```bash
-Trying password: password123
-Password found for ZIP file: password123
-```
-## How It Works
-1. **ZIP File Cracking**: The program opens the ZIP file using the zipfile module and sets the password for each attempt. It then uses testzip() to check if the password is correct. If the password is valid, it prints the success message and exits.
+   Use the following command to start cracking:
 
-2. **RAR File Cracking**: The program opens the RAR file using the rarfile module and attempts to extract the first file in the archive using each password from the wordlist. If the extraction succeeds, the password is deemed correct, and the program exits.
+   ```bash
+   python ziprarhunter.py <path_to_archive> <path_to_wordlist>
+   ```
 
-3. **Real-Time Feedback**: Each password attempt is displayed on the screen in real time. The current password is shown with color-coded output to indicate progress.
+   Replace `<path_to_archive>` with the path to your ZIP or RAR file, and `<path_to_wordlist>` with the path to your wordlist.
 
-## uninstallation
-```bash
-cd ZipRarHunter
-```
-```bash
-cd ZipRarHunter
-```
-```bash
-sudo python3 install.py
-```
-**Then Enter `n` for uninstall**
+3. **Example**:
+
+   ```bash
+   python ziprarhunter.py myarchive.zip mywordlist.txt
+   ```
+
+4. **Monitor the Output**: The tool will display attempts in the terminal. If it finds the password, it will print it.
+
+## Contributing
+
+We welcome contributions to ZipRarHunter! If you have ideas for improvements or new features, feel free to fork the repository and submit a pull request. Here’s how you can contribute:
+
+1. **Fork the Repository**: Click the fork button at the top right of the page.
+2. **Create a Branch**: 
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. **Make Your Changes**: Edit the code as needed.
+4. **Commit Your Changes**:
+
+   ```bash
+   git commit -m "Add your message here"
+   ```
+
+5. **Push to Your Branch**:
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+6. **Open a Pull Request**: Go to the original repository and click on "New Pull Request."
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Disclaimer
-This tool is intended for educational purposes only. It should be used responsibly and legally. Unauthorized use of this tool to crack passwords without permission is illegal and unethical.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or suggestions, please reach out to the maintainer:
+
+- **Name**: Ainun Nafiah
+- **Email**: ainunnafiah@example.com
+
+## Releases
+
+You can download the latest version of ZipRarHunter from the [Releases](https://github.com/ainunnafiah/ZipRarHunter/releases) section. Make sure to check this area for updates and new features.
+
+## Conclusion
+
+ZipRarHunter is a powerful tool for ethical hacking and password recovery. By utilizing this command-line utility, you can enhance your understanding of password security and improve your skills in ethical hacking. 
+
+Remember to always use this tool responsibly and only on files you own or have permission to test.
+
+Happy hacking! 🕵️‍♂️
+
+![Ethical Hacking](https://img.shields.io/badge/ethical--hacking-successful-green) 
+
+For more information and updates, visit the [Releases](https://github.com/ainunnafiah/ZipRarHunter/releases) section.
